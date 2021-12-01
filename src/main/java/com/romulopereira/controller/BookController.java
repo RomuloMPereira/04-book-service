@@ -39,7 +39,8 @@ public class BookController {
 		var port = environment.getProperty("local.server.port");
 		
 		book.setPrice(cambio.getConvertedValue());
-		book.setEnvironment(port);
+		book.setEnvironment("Book port: " + port + 
+				"\nCambio port: " + cambio.getEnvironment());
 		
 		return book;
 	}
