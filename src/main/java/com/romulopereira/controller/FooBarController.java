@@ -16,7 +16,7 @@ public class FooBarController {
 	private Logger logger = LoggerFactory.getLogger(FooBarController.class);
 	
 	@GetMapping("/foo-bar")
-	@Retry(name = "foo-bar")
+	@Retry(name = "foo-bar", fallbackMethod = "fallbackMethod")
 	public String fooBar() {
 		logger.info("Request to foo-bar is received.");
 		//Simulando retry: a url abaixo não existe
@@ -24,5 +24,9 @@ public class FooBarController {
 				.getForEntity("http://localhost:8080/foo-bar", String.class);
 		
 		return response.getBody();
+	}
+	
+	public String fallbackMethod(Exception ex) {
+		return "fallback method foo-bar";
 	}
 }
