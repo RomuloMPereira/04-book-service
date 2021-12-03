@@ -60,9 +60,16 @@
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		</dependency>
+		<!-- /v3/api-docs -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-webmvc-core</artifactId>
+			<version>1.5.7</version>
+		</dependency>
+		<!-- /swagger-ui.html -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.5.7</version>
 		</dependency>
 
