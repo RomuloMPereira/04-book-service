@@ -11,6 +11,10 @@ import com.romulopereira.model.Book;
 import com.romulopereira.proxy.CambioProxy;
 import com.romulopereira.repository.BookRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@Tag(name = "Book endpoint")
 @RestController
 @RequestMapping("book-service")
 public class BookController {
@@ -26,6 +30,7 @@ public class BookController {
 
 	// http://localhost:8100/book-service/1/BRL
 	@GetMapping(value = "/{id}/{currency}")
+	@Operation(summary = "Find a book by ID.")
 	public Book findBook(
 				@PathVariable("id") Long id,
 				@PathVariable("currency") String currency
